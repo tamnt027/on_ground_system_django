@@ -1,0 +1,138 @@
+
+
+div.flex-item {
+    padding :0.5% 0.25%;
+    border: 1px solid;
+    box-shadow: 3px 3px  #888888;
+    overflow: hidden;
+    /* box-sizing: border-box; */
+}
+
+div.option {
+    margin-bottom: 10px;
+}
+
+div.flex-container{
+    display: flex;
+    flex-wrap:  wrap;
+    clear: left;
+    /* justify-content: center; */
+    
+}
+
+.option {
+    float: left;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+p.chart-title {
+    text-align: center;
+    color: blue;
+    font-size: large;
+}
+
+/* For mobile default: */
+
+div.flex-item{
+    /* padding: 5px; */
+    /* margin: 1%; */
+    width: 100%;
+    /* height: 400px; */
+    margin: 0% 0% 10% ;
+    /* border-style: solid ; */
+}
+
+/* .chart-canvas {
+    width: 800px;
+} */
+
+@media only screen and (min-width: 700px) {
+    /* For tablets: */
+    div.flex-item{
+        
+        /* margin: 1%; */
+        /* padding: 5px; */
+        margin: 0% 1% 3% ;
+        width: 47%;
+        /* border-style: solid ; */
+
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    /* For tablets: */
+    div.flex-item{
+        
+        /* margin: 1%; */
+        /* padding: 5px; */
+        margin: 0% 1% 3% ;
+        width: 30%;
+        /* border-style: solid ; */
+
+    }
+
+ 
+}
+
+
+
+@media only screen and (min-width: 1600px) {
+    /* For desktop: */
+    div.flex-item{
+        /* padding: 5px; */
+        /* margin: 5px 5px 5px 5px; */
+        margin: 1% 1% 3% ;
+        width: 22%;
+
+        /* border-style: solid ; */
+    }
+}
+
+
+
+#refresh-interval{
+    width: 150px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#timerange{
+    width: 150px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.text-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+    
+}
+
+h1 {
+    color: rgb(255, 51, 0);
+    text-align: center;
+    font-size: 40px;
+}
+
+#btn-refresh {
+    height:  25px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#go-to-top {
+    margin: 20px;
+    text-align: right;
+    font-size: 20px;
+    color: brown;
+}
