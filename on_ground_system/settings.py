@@ -25,7 +25,7 @@ SECRET_KEY = '$wbdu_2zcf^=5wq8re7=poa9j7rup(^c)0xu7wp-r*q#9z-4es'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
