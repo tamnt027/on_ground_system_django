@@ -10,7 +10,7 @@ def get_data_query_string(bucket, time_range, measurement,  period,  dev_eui):
     |> range(start: -{time_range})
     |> filter(fn: (r) => r["_measurement"] == "{measurement}")
     |> filter(fn: (r) => r["_field"] == "value")
-    |> filter(fn: (r) => r["application_name"] == "test-application")
+    |> filter(fn: (r) => r["application_name"] == "ThomasRoad-Monitoring-Strawberry")
     |> filter(fn: (r) => r["dev_eui"] == "{dev_eui}")
     |> filter(fn: (r) => r["f_port"] == "1")
     |> aggregateWindow(every: {period}, fn: last, createEmpty: false)
