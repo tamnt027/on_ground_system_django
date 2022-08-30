@@ -10,7 +10,6 @@ def get_data_query_string(bucket, time_range, measurement,  period,  dev_eui):
     |> range(start: -{time_range})
     |> filter(fn: (r) => r["_measurement"] == "{measurement}")
     |> filter(fn: (r) => r["_field"] == "value")
-    |> filter(fn: (r) => r["application_name"] == "ThomasRoad-Monitoring-Strawberry")
     |> filter(fn: (r) => r["dev_eui"] == "{dev_eui}")
     |> filter(fn: (r) => r["f_port"] == "1")
     |> aggregateWindow(every: {period}, fn: last, createEmpty: false)
@@ -92,6 +91,23 @@ class InfluxDbHelper:
                     
         return result
     
+    def get_all_application_names(self):
+        query = f"""from(bucket: "{self.config['influxdb']['bucket']}")
+                |> range (start: -3d)
+                |> filter(fn:(r) => r._measurement == "device_frmpayload_data_battery")
+                |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+                |> group()
+                |> distinct(column: "application_name")"""
+        
+        result = []
+        with InfluxDBClient(url= self.config['influxdb']['url'], token=self.config['influxdb']['token'], org=self.config['influxdb']['org']) as client:
+            tables = client.query_api().query(query, org=self.config['influxdb']['org'])
+            for table in tables:
+                for record in table:
+                    value = record.get_value()
+                    result.append((value,value))
+                    
+        return result
 
     
     
